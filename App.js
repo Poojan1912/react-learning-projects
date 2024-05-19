@@ -1,33 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// JSX (transpiled before it reaches the JS ) - Parcel - Babel
-
-// JSX => Babel transpiles it to React.createElement => ReactElement-JS Object => HTMLElement(render)
-
-// React Element
-const jsxHeading = <h1 className="head">This line is transpiled from JSX.</h1>;
-
-console.log(jsxHeading);
-
-// React Component
-// 1. Class-based Component - OLD
-// 2. Functional Component - NEW
-
-// React Functional Component
-const Title = () => <h1>This is title</h1>;
-
-// Component Composition
-const HeadingComponent = () => {
+const Header = () => {
   return (
-    <div>
-      <h1>React Functional Component</h1>
-      <Title />
-      {jsxHeading}
+    <div className="header">
+      <div className="logo-container">
+        <img src="https://www.logodesign.net/logo/cheese-burger-with-lettuce-and-cheese-2697ld.png?size=2" />
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
     </div>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<HeadingComponent />);
+root.render(<AppLayout />);
